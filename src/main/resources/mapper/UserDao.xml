@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="com.offcn.dao.UserDao">
+
+
+    <insert id="save" parameterType="com.offcn.po.User">
+        insert into user(name,age) values(#{name},#{age})
+    </insert>
+    <update id="update" parameterType="com.offcn.po.User">
+        update user set name=#{name},age=#{age} where id=#{id}
+    </update>
+    <delete id="delete" parameterType="java.lang.Long">
+    delete from user where id=#{id}
+</delete>
+
+
+    <select id="getAll"  resultType="com.offcn.po.User">
+        select * from user
+    </select>
+
+    <select id="findOne" parameterType="java.lang.Long" resultType="com.offcn.po.User">
+        select * from user where id=#{id}
+    </select>
+
+</mapper>
